@@ -1,0 +1,374 @@
+{
+    "version": "0.1.0",
+    "name": "candy_machine",
+    "instructions": [
+      {
+        "name": "addConfigLines",
+        "accounts": [
+          {
+            "name": "candyMachine",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "authority",
+            "isMut": false,
+            "isSigner": true
+          }
+        ],
+        "args": [
+          {
+            "name": "index",
+            "type": "u32"
+          },
+          {
+            "name": "configLines",
+            "type": {
+              "vec": {
+                "defined": "ConfigLine"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "initializeCandyMachine",
+        "accounts": [
+          {
+            "name": "candyMachine",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "wallet",
+            "isMut": false,
+            "isSigner": false
+          },
+          {
+            "name": "authority",
+            "isMut": false,
+            "isSigner": true
+          },
+          {
+            "name": "payer",
+            "isMut": true,
+            "isSigner": true
+          },
+          {
+            "name": "systemProgram",
+            "isMut": false,
+            "isSigner": false
+          },
+          {
+            "name": "rent",
+            "isMut": false,
+            "isSigner": false
+          }
+        ],
+        "args": [
+          {
+            "name": "data",
+            "type": {
+              "defined": "CandyMachineData"
+            }
+          }
+        ]
+      },
+      {
+        "name": "mintNft",
+        "accounts": [
+          {
+            "name": "candyMachine",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "mint",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "metadata",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "masterEdition",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "mintAuthority",
+            "isMut": false,
+            "isSigner": true
+          },
+          {
+            "name": "payer",
+            "isMut": true,
+            "isSigner": true
+          },
+          {
+            "name": "wallet",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "tokenMetadataProgram",
+            "isMut": false,
+            "isSigner": false
+          },
+          {
+            "name": "tokenProgram",
+            "isMut": false,
+            "isSigner": false
+          },
+          {
+            "name": "systemProgram",
+            "isMut": false,
+            "isSigner": false
+          },
+          {
+            "name": "rent",
+            "isMut": false,
+            "isSigner": false
+          },
+          {
+            "name": "clock",
+            "isMut": false,
+            "isSigner": false
+          }
+        ],
+        "args": []
+      }
+    ],
+    "accounts": [
+      {
+        "name": "candyMachine",
+        "type": {
+          "kind": "struct",
+          "fields": [
+            {
+              "name": "authority",
+              "type": "publicKey"
+            },
+            {
+              "name": "wallet",
+              "type": "publicKey"
+            },
+            {
+              "name": "itemsRedeemed",
+              "type": "u64"
+            },
+            {
+              "name": "data",
+              "type": {
+                "defined": "CandyMachineData"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "types": [
+      {
+        "name": "ConfigLine",
+        "type": {
+          "kind": "struct",
+          "fields": [
+            {
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "name": "uri",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      {
+        "name": "CandyMachineData",
+        "type": {
+          "kind": "struct",
+          "fields": [
+            {
+              "name": "itemsAvailable",
+              "type": "u64"
+            },
+            {
+              "name": "price",
+              "type": "u64"
+            },
+            {
+              "name": "symbol",
+              "type": "string"
+            },
+            {
+              "name": "sellerFeeBasisPoints",
+              "type": "u16"
+            },
+            {
+              "name": "creators",
+              "type": {
+                "vec": {
+                  "defined": "Creator"
+                }
+              }
+            },
+            {
+              "name": "goLiveDate",
+              "type": {
+                "option": "i64"
+              }
+            },
+            {
+              "name": "endSettings",
+              "type": {
+                "option": {
+                  "defined": "EndSettings"
+                }
+              }
+            },
+            {
+              "name": "whitelistMintSettings",
+              "type": {
+                "option": {
+                  "defined": "WhitelistMintSettings"
+                }
+              }
+            },
+            {
+              "name": "hiddenSettings",
+              "type": {
+                "option": {
+                  "defined": "HiddenSettings"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "Creator",
+        "type": {
+          "kind": "struct",
+          "fields": [
+            {
+              "name": "address",
+              "type": "publicKey"
+            },
+            {
+              "name": "verified",
+              "type": "bool"
+            },
+            {
+              "name": "share",
+              "type": "u8"
+            }
+          ]
+        }
+      },
+      {
+        "name": "EndSettings",
+        "type": {
+          "kind": "struct",
+          "fields": [
+            {
+              "name": "endSettingType",
+              "type": {
+                "defined": "EndSettingType"
+              }
+            },
+            {
+              "name": "number",
+              "type": "u64"
+            }
+          ]
+        }
+      },
+      {
+        "name": "HiddenSettings",
+        "type": {
+          "kind": "struct",
+          "fields": [
+            {
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "name": "uri",
+              "type": "string"
+            },
+            {
+              "name": "hash",
+              "type": {
+                "array": [
+                  "u8",
+                  32
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "WhitelistMintSettings",
+        "type": {
+          "kind": "struct",
+          "fields": [
+            {
+              "name": "mode",
+              "type": {
+                "defined": "WhitelistMintMode"
+              }
+            },
+            {
+              "name": "mint",
+              "type": "publicKey"
+            },
+            {
+              "name": "presale",
+              "type": "bool"
+            },
+            {
+              "name": "discountPrice",
+              "type": {
+                "option": "u64"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "EndSettingType",
+        "type": {
+          "kind": "enum",
+          "variants": [
+            {
+              "name": "Date"
+            },
+            {
+              "name": "Amount"
+            }
+          ]
+        }
+      },
+      {
+        "name": "WhitelistMintMode",
+        "type": {
+          "kind": "enum",
+          "variants": [
+            {
+              "name": "BurnEveryTime"
+            },
+            {
+              "name": "NeverBurn"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": {
+      "address": "cndy3Z4yapfJBmL3ShUp5exZKqR3z33thTzeNMm2gRZ"
+    }
+  }

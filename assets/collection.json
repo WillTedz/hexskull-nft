@@ -1,0 +1,20 @@
+{
+    "name": "HexSkull Collection",
+    "symbol": "HexSkull",
+    "description": "The HexSkull Collection of 100 unique NFTs.",
+    "image": "0.png",
+    "seller_fee_basis_points": 100,
+    "external_url": "https://HexSkull.com",
+    "attributes": [],
+    "properties": {
+      "files": [{ "uri": "0.png", "type": "image/png" }],
+      "category": "image",
+      "creators": [
+        {
+          "address": "9czqUn7gMUPpVF1VBNU6LXWsJMf3i5vyeHioznCkn5g2",
+          "share": 100
+        }
+      ]
+    }
+  }
+  

@@ -1,0 +1,50 @@
+{
+  "name": "HexSkull #48",
+  "symbol": "HexSkull",
+  "description": "HexSkull is HexSkull NFT which is rare and awesome. Built on Solana chain.",
+  "seller_fee_basis_points": 100,
+  "image": "48.png",
+  "external_url": "https://HexSkullmint.netlify.app",
+  "edition": 48,
+  "attributes": [
+    {
+      "trait_type": "bg",
+      "value": "orange"
+    },
+    {
+      "trait_type": "HexSkull",
+      "value": "HexSkull"
+    },
+    {
+      "trait_type": "goggles",
+      "value": "goggles"
+    },
+    {
+      "trait_type": "cigar",
+      "value": "cigar"
+    },
+    {
+      "trait_type": "caps",
+      "value": "cap"
+    },
+    {
+      "trait_type": "maustach",
+      "value": "maustach"
+    }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "48.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "6UUrDQGx5WtD78pcgci3UvoenjPXCWRjQRrqmAfaBUH1",
+        "share": 100
+      }
+    ]
+  }
+}
