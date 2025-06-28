@@ -8,7 +8,7 @@
 
 
 
-[Visit HexSkull](https://HexSkullmint.netlify.app/ "Visit HexSkull!") -> Solana blockchain based NFT mint Dapp
+[Visit HexSkull](https://hexskull.net/ "Visit HexSkull!") -> Solana blockchain based NFT mint Dapp
 
 
 
